@@ -4,8 +4,8 @@
 
 ### A little about me:
 
-- ** I am undertaking a degree in Stats ** 
-- *I am taking STATS 220 for a prerequsite * ....
+** I am undertaking a degree in Stats ** 
+*I am taking STATS 220 for a prerequsite * ....
 - I am interested in learning about [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning) and I like to play [chess](https://lichess.org/)
 
 A meme that captures how I currently feel about my university studies is ![](https://media1.tenor.com/m/5BYK-WS0__gAAAAd/cool-fun.gif)
