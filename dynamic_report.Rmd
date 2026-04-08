@@ -90,5 +90,18 @@ latest_data %>%
        caption = "Source: Running observation log")
 
 ```
+```{r}
+
+
+latest_data %>%
+  ggplot(aes(x = temp_c, y = duration_min)) +
+  geom_point(color = "#4DA6FF", size = 3) +
+  labs(title = "Run duration vs outdoor temperature",
+       subtitle = "Relationship between temperature and run duration",
+       x = "Temperature (°C)",
+       y = "Run duration (minutes)",
+       caption = "Source: Running observation log")
+
+```
 
 
