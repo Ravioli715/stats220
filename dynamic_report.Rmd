@@ -1,0 +1,94 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+## Running and temperature observations
+This report summarises the running observations collected using my Google Form.  
+Each response represents one outdoor run, and the report focuses on temperature, run duration, difficulty, and weather condition.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+```
+
+```{r}
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRZLlIccxMWtI2UC9pXfQM0_mamD1eaVuwhCzn6sYAKhBHRi29mZ2Zpbgq9Jlo1F9t4VZNYeR1WdXHo/pub?gid=1506109598&single=true&output=csv")
+
+latest_data <- logged_data %>%
+  rename(timestamp = 1,
+         temp_c = 2,
+         duration_min = 3,
+         difficulty = 4,
+         weather = 5)
+
+num_runs <- nrow(latest_data)
+
+min_temp <- min(latest_data$temp_c)
+max_temp <- max(latest_data$temp_c)
+
+mean_duration <- latest_data$duration_min %>%
+  mean() %>%
+  round(1)
+```
+
+
+
+```{css}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+h2 {
+  color: #1f4e79;
+}
+
+p {
+  font-size: 15px;
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+```
+
+A total of `r num_runs` runs were logged.
+
+The lowest recorded temperature was `r min_temp` degrees Celsius, and the highest recorded temperature was `r max_temp` degrees Celsius.
+
+The mean run duration was `r mean_duration` minutes.
+
+The first bar chart shows how difficult the runs felt across the logged observations.
+
+```{r}
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = difficulty),
+           fill = "#6a0dad") +
+  labs(title = "How difficult did the runs feel?",
+       subtitle = "Distribution of difficulty ratings across logged runs",
+       x = "Difficulty",
+       y = "Number of runs",
+       caption = "Source: Running observation log")
+
+
+```
+
+```{r}
+
+
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = weather),
+           fill = "#B2C248") +
+  labs(title = "Weather conditions during runs",
+       subtitle = "Count of logged runs by weather condition",
+       x = "Weather condition",
+       y = "Number of runs",
+       caption = "Source: Running observation log")
+
+```
+
+
