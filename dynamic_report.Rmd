@@ -117,16 +117,16 @@ summary_text <- c(
 )
 
 frame1 <- image_blank(color = "white", width = 500, height = 500) %>%
-  image_annotate(text = summary_text[1], size = 40, gravity = "center")
+  image_annotate(text = summary_text[1], size = 25, gravity = "center")
 
 frame2 <- image_blank(color = "white", width = 500, height = 500) %>%
-  image_annotate(text = summary_text[2], size = 40, gravity = "center")
+  image_annotate(text = summary_text[2], size = 25, gravity = "center")
 
 frame3 <- image_blank(color = "white", width = 500, height = 500) %>%
-  image_annotate(text = summary_text[3], size = 40, gravity = "center")
+  image_annotate(text = summary_text[3], size = 25, gravity = "center")
 
 frame4 <- image_blank(color = "white", width = 500, height = 500) %>%
-  image_annotate(text = summary_text[4], size = 40, gravity = "center")
+  image_annotate(text = summary_text[4], size = 25, gravity = "center")
 
 frames <- c(frame1, frame2, frame3, frame4)
 
