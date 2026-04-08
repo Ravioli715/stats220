@@ -104,4 +104,34 @@ latest_data %>%
 
 ```
 
+```{r}
+
+
+library(magick)
+
+summary_text <- c(
+  paste("Runs logged", num_runs),
+  paste("Mean duration", mean_duration, "minutes"),
+  paste("Minimum temperature", min(latest_data$temp_c), "degrees C"),
+  paste("Maximum temperature", max(latest_data$temp_c), "degrees C")
+)
+
+frame1 <- image_blank(color = "white", width = 500, height = 500) %>%
+  image_annotate(text = summary_text[1], size = 40, gravity = "center")
+
+frame2 <- image_blank(color = "white", width = 500, height = 500) %>%
+  image_annotate(text = summary_text[2], size = 40, gravity = "center")
+
+frame3 <- image_blank(color = "white", width = 500, height = 500) %>%
+  image_annotate(text = summary_text[3], size = 40, gravity = "center")
+
+frame4 <- image_blank(color = "white", width = 500, height = 500) %>%
+  image_annotate(text = summary_text[4], size = 40, gravity = "center")
+
+frames <- c(frame1, frame2, frame3, frame4)
+
+image_animate(frames, fps = 1)
+
+```
+
 
